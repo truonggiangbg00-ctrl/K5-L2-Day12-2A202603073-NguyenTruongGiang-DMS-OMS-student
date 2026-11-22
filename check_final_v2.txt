@@ -1,0 +1,18 @@
+File: export_final_v2.zip · chỉ kiểm ảnh: S01, S02, S03, S04, S05, S06, S07, S08, D01, D02, D03, D04, D05, D06
+Ảnh: 22 · đã có frame_meta: 22 · số đối tượng: child_seat=12, face=6, face13=6, hand=12, infant_seat=4, object=10, person=10, phone=1
+  [ERROR] S03_ir.png: child_seat: occupied='yes' không hợp lệ (cho phép: unknown, no)
+  [ERROR] S03_rgb.png: child_seat: occupied='yes' không hợp lệ (cho phép: unknown, no)
+  [ERROR] S04_ir.png: child_seat: occupied='yes' không hợp lệ (cho phép: unknown, no)
+  [ERROR] S04_rgb.png: child_seat: occupied='yes' không hợp lệ (cho phép: unknown, no)
+  [ERROR] S05_ir.png: child_seat: occupied='yes' không hợp lệ (cho phép: unknown, no)
+  [ERROR] S05_rgb.png: child_seat: occupied='yes' không hợp lệ (cho phép: unknown, no)
+  [ERROR] S06_ir.png: child_seat: occupied='yes' không hợp lệ (cho phép: unknown, no)
+  [ERROR] S06_rgb.png: child_seat: occupied='yes' không hợp lệ (cho phép: unknown, no)
+  [ERROR] S08_ir.png: child_seat: occupied='yes' không hợp lệ (cho phép: unknown, no)
+  [ERROR] S08_rgb.png: child_seat: occupied='yes' không hợp lệ (cho phép: unknown, no)
+Kết quả: 10 lỗi, 0 cảnh báo. Cảnh báo cần bạn tự xét, không tự động là sai.
+
+Ghi chú:
+- Bản v2 đã sửa các bất đồng sau review chéo với bạn Lê Tuấn Khôi (siết box face/hand/phone ở D01, D02, D03, D05; sửa gaze_zone ở D02, D03, D05, D06; sửa eye_right và cờ occluded ở D03; siết box object ở S01, S03).
+- Task CVAT gồm 26 ảnh nên chạy kiểm tra 22 ảnh cốt lõi bằng `--only` theo COMMON_ERRORS.md.
+- Còn 10 lỗi `child_seat: occupied='yes'` ở S03–S08 theo schema chuẩn: cần mở lại CVAT đổi `occupied` về `no` hoặc `unknown` (và tách box `object` nếu có vật trong ghế trẻ em theo §4.8), export lại `export_final_v2.zip` và chạy lại lệnh này để đạt `0 lỗi`.

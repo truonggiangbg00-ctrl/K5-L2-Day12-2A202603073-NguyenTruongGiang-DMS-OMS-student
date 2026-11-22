@@ -1,16 +1,37 @@
 ﻿image,label,field,issue,mine,peer,verdict,guideline_rule,action
-S09_ir.png,-,image,chỉ có ở mine,,,,,
-S09_rgb.png,-,image,chỉ có ở mine,,,,,
-S10_ir.png,-,image,chỉ có ở mine,,,,,
-S10_rgb.png,-,image,chỉ có ở mine,,,,,
-D01.png,face,eye_right,khác giá trị (IoU=0.79),unknown,closed,,,
-D04.png,face,eye_left,khác giá trị (IoU=0.91),closed,open,,,
-D04.png,face,eye_right,khác giá trị (IoU=0.91),closed,open,,,
-D04.png,face,gaze_zone,khác giá trị (IoU=0.91),other,road,,,
-S03_ir.png,object,box,chỉ có ở mine (hoặc IoU thấp),IoU=0.46,,,,
-S03_ir.png,object,box,chỉ có ở peer (hoặc IoU thấp),,,,,
-S03_rgb.png,object,box,chỉ có ở mine (hoặc IoU thấp),IoU=0.46,,,,
-S03_rgb.png,object,box,chỉ có ở peer (hoặc IoU thấp),,,,,
-S05_ir.png,child_seat,seat,khác giá trị (IoU=0.87),rear_right,rear_left,,,
-S07_ir.png,person,seatbelt,khác giá trị (IoU=0.90),unknown,not_worn,,,
-S07_rgb.png,person,seatbelt,khác giá trị (IoU=0.90),unknown,not_worn,,,
+S09_ir.png,-,image,chỉ có ở mine,,,peer,GUIDE §2 Task 0; §5,"Task cốt lõi chỉ gồm 22 ảnh (S01–S08, D01–D06); S09–S10 là phần mở rộng nên khi tự kiểm dùng cờ --only 22 ảnh cốt lõi và ghi chú trong check_final.txt."
+S09_rgb.png,-,image,chỉ có ở mine,,,peer,GUIDE §2 Task 0; §5,"Task cốt lõi chỉ gồm 22 ảnh (S01–S08, D01–D06); S09–S10 là phần mở rộng nên khi tự kiểm dùng cờ --only 22 ảnh cốt lõi và ghi chú trong check_final.txt."
+S10_ir.png,-,image,chỉ có ở mine,,,peer,GUIDE §2 Task 0; §5,"Task cốt lõi chỉ gồm 22 ảnh (S01–S08, D01–D06); S09–S10 là phần mở rộng nên khi tự kiểm dùng cờ --only 22 ảnh cốt lõi và ghi chú trong check_final.txt."
+S10_rgb.png,-,image,chỉ có ở mine,,,peer,GUIDE §2 Task 0; §5,"Task cốt lõi chỉ gồm 22 ảnh (S01–S08, D01–D06); S09–S10 là phần mở rộng nên khi tự kiểm dùng cờ --only 22 ảnh cốt lõi và ghi chú trong check_final.txt."
+D01.png,hand,box,chỉ có ở mine (hoặc IoU thấp),IoU=0.43,,peer,4.4-5; 4.7,Box hand phải ban đầu hơi rộng (IoU=0.43); đã siết gọn ôm sát bàn tay đến cổ tay trong export_final_v2.zip.
+D01.png,face,box,chỉ có ở mine (hoặc IoU thấp),IoU=0.50,,peer,4.4-5; 4.5,"Box face ban đầu dư viền (IoU=0.50); đã thu gọn sát trán đến cằm trong export_final_v2.zip (lưu ý sau khi siết box, eye_right: mine=unknown đúng hơn peer=closed vì 4 điểm right_eye_* đều occluded=1)."
+D01.png,face,box,chỉ có ở peer (hoặc IoU thấp),,,peer,4.4-5; 4.5,"Box face ban đầu dư viền (IoU=0.50); đã thu gọn sát trán đến cằm trong export_final_v2.zip (lưu ý sau khi siết box, eye_right: mine=unknown đúng hơn peer=closed vì 4 điểm right_eye_* đều occluded=1)."
+D01.png,hand,box,chỉ có ở peer (hoặc IoU thấp),,,peer,4.4-5; 4.7,Box hand phải ban đầu hơi rộng (IoU=0.43); đã siết gọn ôm sát bàn tay đến cổ tay trong export_final_v2.zip.
+D02.png,face,gaze_zone,khác giá trị (IoU=0.69),center,road,peer,4.5,Sửa gaze_zone từ center thành road theo hướng đầu và mắt nhìn về phía trước trong export_final_v2.zip.
+D02.png,phone,box,chỉ có ở mine (hoặc IoU thấp),IoU=0.18,,peer,4.4-5; 4.7,Box phone ban đầu vẽ lỏng (IoU=0.18); đã siết gọn sát thân điện thoại đang cầm trong export_final_v2.zip.
+D02.png,phone,box,chỉ có ở peer (hoặc IoU thấp),,,peer,4.4-5; 4.7,Box phone ban đầu vẽ lỏng (IoU=0.18); đã siết gọn sát thân điện thoại đang cầm trong export_final_v2.zip.
+D03.png,hand,box,chỉ có ở mine (hoặc IoU thấp),IoU=0.43,,peer,4.4-5; 4.7,Box hand trên vô lăng ban đầu dư viền (IoU 0.43–0.45); đã siết gọn cả 2 box tay sát bàn tay đến cổ tay trong export_final_v2.zip.
+D03.png,hand,box,chỉ có ở mine (hoặc IoU thấp),IoU=0.45,,peer,4.4-5; 4.7,Box hand trên vô lăng ban đầu dư viền (IoU 0.43–0.45); đã siết gọn cả 2 box tay sát bàn tay đến cổ tay trong export_final_v2.zip.
+D03.png,face,eye_right,khác giá trị (IoU=0.72),unknown,open,peer,4.5,Đối chiếu kỹ qua kính cận thấy khe mắt phải mở; sửa eye_right từ unknown thành open trong export_final_v2.zip.
+D03.png,face,gaze_zone,khác giá trị (IoU=0.72),mirror_r,road,peer,4.5,Sửa gaze_zone từ mirror_r thành road theo hướng mắt và đầu trong export_final_v2.zip.
+D03.png,hand,box,chỉ có ở peer (hoặc IoU thấp),,,peer,4.4-5; 4.7,Box hand trên vô lăng ban đầu dư viền (IoU 0.43–0.45); đã siết gọn cả 2 box tay sát bàn tay đến cổ tay trong export_final_v2.zip.
+D03.png,hand,box,chỉ có ở peer (hoặc IoU thấp),,,peer,4.4-5; 4.7,Box hand trên vô lăng ban đầu dư viền (IoU 0.43–0.45); đã siết gọn cả 2 box tay sát bàn tay đến cổ tay trong export_final_v2.zip.
+D03.png,face13,right_eye_outer.occluded,khác cờ,1,0,peer,4.6,Bỏ cờ occluded (1 -> 0) cho right_eye_outer để khớp với eye_right = open trong export_final_v2.zip.
+D03.png,face13,right_eye_inner.occluded,khác cờ,1,0,peer,4.6,Bỏ cờ occluded (1 -> 0) cho right_eye_inner để khớp với eye_right = open trong export_final_v2.zip.
+D03.png,face13,right_eye_upper.occluded,khác cờ,1,0,peer,4.6,Bỏ cờ occluded (1 -> 0) cho right_eye_upper để khớp với eye_right = open trong export_final_v2.zip.
+D03.png,face13,right_eye_lower.occluded,khác cờ,1,0,peer,4.6,Bỏ cờ occluded (1 -> 0) cho right_eye_lower để khớp với eye_right = open trong export_final_v2.zip.
+D04.png,face,eye_left,khác giá trị (IoU=0.88),closed,open,ambiguous,4.5,Hai bạn còn khác đánh giá độ mở mí qua kính cận trên ảnh NIR (closed vs open); tạm giữ closed trong v2 và ghi nhận hỏi coach.
+D04.png,face,eye_right,khác giá trị (IoU=0.88),closed,open,ambiguous,4.5,Hai bạn còn khác đánh giá độ mở mí qua kính cận trên ảnh NIR (closed vs open); tạm giữ closed trong v2 và ghi nhận hỏi coach.
+D04.png,face,gaze_zone,khác giá trị (IoU=0.88),other,road,ambiguous,4.5,Phụ thuộc trạng thái mắt ở D04 (other vs road); tạm giữ other trong v2 và ghi nhận hỏi coach.
+D05.png,face,box,chỉ có ở mine (hoặc IoU thấp),IoU=0.40,,peer,4.4-5; 4.5,"Box face ban đầu quá rộng (IoU=0.40); đã thu gọn sát khuôn mặt (trán đến cằm, tai đến tai) trong export_final_v2.zip."
+D05.png,hand,box,chỉ có ở mine (hoặc IoU thấp),IoU=0.42,,peer,4.4-5; 4.7,Box hand ban đầu rộng hơn cổ tay (IoU=0.42); đã siết gọn sát bàn tay hơn trong export_final_v2.zip.
+D05.png,hand,box,chỉ có ở peer (hoặc IoU thấp),,,peer,4.4-5; 4.7,Box hand ban đầu rộng hơn cổ tay (IoU=0.42); đã siết gọn sát bàn tay hơn trong export_final_v2.zip.
+D05.png,face,box,chỉ có ở peer (hoặc IoU thấp),,,peer,4.4-5; 4.5,"Box face ban đầu quá rộng (IoU=0.40); đã thu gọn sát khuôn mặt (trán đến cằm, tai đến tai) trong export_final_v2.zip."
+D06.png,face,gaze_zone,khác giá trị (IoU=0.70),center,road,peer,4.5,Sửa gaze_zone từ center thành road theo hướng nhìn của tài xế trong export_final_v2.zip.
+S03_ir.png,object,box,chỉ có ở mine (hoặc IoU thấp),IoU=0.46,,mine,4.4-5; 4.8,Vật thể cup ở rear_left kích thước nhỏ nên lệch vài pixel làm IoU=0.46; giữ box mine ôm đủ mép vật (đã kiểm lại cả box hộp ở rear_right).
+S03_ir.png,object,box,chỉ có ở peer (hoặc IoU thấp),,,mine,4.4-5; 4.8,Vật thể cup ở rear_left kích thước nhỏ nên lệch vài pixel làm IoU=0.46; giữ box mine ôm đủ mép vật (đã kiểm lại cả box hộp ở rear_right).
+S03_rgb.png,object,box,chỉ có ở mine (hoặc IoU thấp),IoU=0.46,,mine,4.4-5; 4.8,Vật thể cup ở rear_left kích thước nhỏ nên lệch vài pixel làm IoU=0.46; giữ box mine ôm đủ mép vật (đã kiểm lại cả box hộp ở rear_right).
+S03_rgb.png,object,box,chỉ có ở peer (hoặc IoU thấp),,,mine,4.4-5; 4.8,Vật thể cup ở rear_left kích thước nhỏ nên lệch vài pixel làm IoU=0.46; giữ box mine ôm đủ mép vật (đã kiểm lại cả box hộp ở rear_right).
+S05_ir.png,child_seat,seat,khác giá trị (IoU=0.87),rear_right,rear_left,mine,4.4-3; 4.8,Giữ seat = rear_right vì camera OMS nhìn về phía sau nên bên trái ảnh là phải xe; nhắc peer sửa S05_ir cho khớp S05_rgb.
+S07_ir.png,person,seatbelt,khác giá trị (IoU=0.90),unknown,not_worn,mine,4.4-1; 4.7,Giữ seatbelt = unknown vì không nhìn rõ vùng dây an toàn thay vì đoán (SVIRO chỉ cho phép not_worn hoặc unknown).
+S07_rgb.png,person,seatbelt,khác giá trị (IoU=0.90),unknown,not_worn,mine,4.4-1; 4.7,Giữ seatbelt = unknown vì không nhìn rõ vùng dây an toàn thay vì đoán (SVIRO chỉ cho phép not_worn hoặc unknown).

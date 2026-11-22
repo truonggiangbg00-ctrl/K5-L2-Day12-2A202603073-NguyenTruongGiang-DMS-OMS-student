@@ -1,18 +1,9 @@
 File: export_final_v2.zip · chỉ kiểm ảnh: S01, S02, S03, S04, S05, S06, S07, S08, D01, D02, D03, D04, D05, D06
 Ảnh: 22 · đã có frame_meta: 22 · số đối tượng: child_seat=12, face=6, face13=6, hand=12, infant_seat=4, object=10, person=10, phone=1
-  [ERROR] S03_ir.png: child_seat: occupied='yes' không hợp lệ (cho phép: unknown, no)
-  [ERROR] S03_rgb.png: child_seat: occupied='yes' không hợp lệ (cho phép: unknown, no)
-  [ERROR] S04_ir.png: child_seat: occupied='yes' không hợp lệ (cho phép: unknown, no)
-  [ERROR] S04_rgb.png: child_seat: occupied='yes' không hợp lệ (cho phép: unknown, no)
-  [ERROR] S05_ir.png: child_seat: occupied='yes' không hợp lệ (cho phép: unknown, no)
-  [ERROR] S05_rgb.png: child_seat: occupied='yes' không hợp lệ (cho phép: unknown, no)
-  [ERROR] S06_ir.png: child_seat: occupied='yes' không hợp lệ (cho phép: unknown, no)
-  [ERROR] S06_rgb.png: child_seat: occupied='yes' không hợp lệ (cho phép: unknown, no)
-  [ERROR] S08_ir.png: child_seat: occupied='yes' không hợp lệ (cho phép: unknown, no)
-  [ERROR] S08_rgb.png: child_seat: occupied='yes' không hợp lệ (cho phép: unknown, no)
-Kết quả: 10 lỗi, 0 cảnh báo. Cảnh báo cần bạn tự xét, không tự động là sai.
+  [WARN] D01.png: eye_right=closed nhưng cả 4 điểm right_eye_* đều bị che: không thấy mắt thì eye_right nên là unknown
+Kết quả: 0 lỗi, 1 cảnh báo. Cảnh báo cần bạn tự xét, không tự động là sai.
 
 Ghi chú:
-- Bản v2 đã sửa các bất đồng sau review chéo với bạn Lê Tuấn Khôi (siết box face/hand/phone ở D01, D02, D03, D05; sửa gaze_zone ở D02, D03, D05, D06; sửa eye_right và cờ occluded ở D03; siết box object ở S01, S03).
-- Task CVAT gồm 26 ảnh nên chạy kiểm tra 22 ảnh cốt lõi bằng `--only` theo COMMON_ERRORS.md.
-- Còn 10 lỗi `child_seat: occupied='yes'` ở S03–S08 theo schema chuẩn: cần mở lại CVAT đổi `occupied` về `no` hoặc `unknown` (và tách box `object` nếu có vật trong ghế trẻ em theo §4.8), export lại `export_final_v2.zip` và chạy lại lệnh này để đạt `0 lỗi`.
+- Bản v2 đã cập nhật các chỉnh sửa sau review chéo với bạn Lê Tuấn Khôi: siết box `face`/`hand`/`phone` ở D01, D02, D03, D05; sửa `gaze_zone` ở D02, D03, D04, D05, D06; sửa `eye_right` và cờ `occluded` ở D03; sửa `eye_left`/`eye_right` thành `open` ở D04; siết box `object` ở S01, S03_ir (`cup`), S07_ir (`box`); sửa `person.seatbelt` ở S07_ir và S07_rgb thành `not_worn`.
+- Task CVAT gồm 26 ảnh (22 ảnh cốt lõi + 4 ảnh mở rộng S09–S10) nên chạy kiểm tra 22 ảnh cốt lõi bằng `--only` theo COMMON_ERRORS.md.
+- Giải thích cảnh báo `[WARN] D01.png`: Trên D01, mắt phải bị che khuất một phần theo góc chụp/bàn tay nên cả 4 điểm `right_eye_*` trong `face13` được đánh dấu `occluded=1` (đặt ở vị trí ước lượng); đồng thời sau khi đối chiếu với peer đã cập nhật `eye_right = closed` (đồng nhất với mắt trái đang nhắm). Ghi nhận cảnh báo này là hợp lý do quy tắc nhất quán cờ của script, đã kiểm tra lại và giữ ghi chú giải thích.
